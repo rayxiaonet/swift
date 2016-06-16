@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="536"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="10L-Kd-tSC" userLabel="cover">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="10L-Kd-tSC" userLabel="cover">
                                 <rect key="frame" x="0.0" y="20" width="600" height="536"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
@@ -32,7 +32,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPg-yq-mNp">
-                                                <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="Qiv-OS-HEF"/>
                                                 </constraints>
@@ -42,7 +42,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6B-1F-j0K">
-                                                <rect key="frame" x="150" y="0.0" width="150" height="44"/>
+                                                <rect key="frame" x="120" y="0.0" width="120" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="9TF-bC-3of"/>
                                                 </constraints>
@@ -51,8 +51,18 @@
                                                     <action selector="onFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bde-Ke-RWf"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3oP-lV-iI2">
+                                                <rect key="frame" x="240" y="0.0" width="120" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="6Fm-ze-kBd"/>
+                                                </constraints>
+                                                <state key="normal" title="Adjust"/>
+                                                <connections>
+                                                    <action selector="onAdjustClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m77-w2-Sgp"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPg-2N-f93">
-                                                <rect key="frame" x="300" y="0.0" width="150" height="44"/>
+                                                <rect key="frame" x="360" y="0.0" width="120" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="zgf-3k-aR7"/>
                                                 </constraints>
@@ -62,7 +72,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Leg-ry-Zqw">
-                                                <rect key="frame" x="450" y="0.0" width="150" height="44"/>
+                                                <rect key="frame" x="480" y="0.0" width="120" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="IZl-Nh-MXv"/>
                                                 </constraints>
@@ -88,6 +98,12 @@
                                 <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="QXf-Cp-R8r">
+                                <rect key="frame" x="18" y="506" width="564" height="31"/>
+                                <connections>
+                                    <action selector="filterSliderChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="lXR-bo-7gf"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -96,22 +112,32 @@
                             <constraint firstAttribute="trailingMargin" secondItem="10L-Kd-tSC" secondAttribute="trailing" constant="-20" id="CAs-2z-gfu"/>
                             <constraint firstItem="JNF-wb-wwY" firstAttribute="top" secondItem="10L-Kd-tSC" secondAttribute="bottom" id="Eon-Rg-ll8"/>
                             <constraint firstItem="JNF-wb-wwY" firstAttribute="top" secondItem="aND-Em-4Dd" secondAttribute="bottom" id="GY2-gV-4Y4"/>
+                            <constraint firstItem="QXf-Cp-R8r" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="GtR-78-6F2"/>
                             <constraint firstItem="aND-Em-4Dd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Hr8-fN-WFn"/>
                             <constraint firstItem="10L-Kd-tSC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Uc0-4u-5cQ"/>
                             <constraint firstAttribute="trailing" secondItem="aND-Em-4Dd" secondAttribute="trailing" id="VAw-Rk-Dte"/>
                             <constraint firstItem="10L-Kd-tSC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="W7t-8W-h8C"/>
                             <constraint firstItem="JNF-wb-wwY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ezb-a7-a7E"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JNF-wb-wwY" secondAttribute="bottom" id="gS7-Xm-JhX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QXf-Cp-R8r" secondAttribute="trailing" id="hmj-Nw-eCa"/>
+                            <constraint firstItem="QXf-Cp-R8r" firstAttribute="bottom" secondItem="JNF-wb-wwY" secondAttribute="top" constant="-20" id="rEk-gx-rtJ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="adjustButton" destination="3oP-lV-iI2" id="Gqb-pZ-qPC"/>
+                        <outlet property="blueFilterButton" destination="sNq-be-bSy" id="sjm-rb-txA"/>
                         <outlet property="bottomMenu" destination="JNF-wb-wwY" id="jTm-2q-PDu"/>
                         <outlet property="compareButton" destination="tPg-2N-f93" id="fb3-9W-yNn"/>
                         <outlet property="coverImage" destination="10L-Kd-tSC" id="mJp-qI-8vO"/>
-                        <outlet property="filterButton" destination="C6B-1F-j0K" id="6Kf-1q-zun"/>
+                        <outlet property="filterButton" destination="C6B-1F-j0K" id="8Qi-x3-B0Q"/>
+                        <outlet property="filterSlider" destination="QXf-Cp-R8r" id="Mmc-AX-Ece"/>
+                        <outlet property="greenFilterButton" destination="axt-GK-a6m" id="d4M-wU-EJN"/>
                         <outlet property="imageView" destination="aND-Em-4Dd" id="QwX-Qd-aJA"/>
                         <outlet property="originalLabel" destination="hVp-1x-KMb" id="ed9-yv-4KJ"/>
+                        <outlet property="purpleFilterButton" destination="7P8-VM-YCw" id="paL-e4-WB3"/>
+                        <outlet property="redFilterButton" destination="Drk-Kp-614" id="vbi-Se-6FK"/>
                         <outlet property="secondaryMenu" destination="ePS-oG-ZHP" id="Be7-JW-Iwe"/>
+                        <outlet property="yellowFilterButton" destination="zUq-ef-bpc" id="ZJh-k0-WgE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -122,37 +148,37 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="n3M-NR-6VP">
                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drk-Kp-614">
+                                <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drk-Kp-614">
                                     <rect key="frame" x="0.0" y="0.0" width="48" height="128"/>
-                                    <state key="normal" title="Red"/>
+                                    <state key="normal" title="Red" image="edit_red"/>
                                     <connections>
                                         <action selector="redFilterButtonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="CBv-4M-VLR"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axt-GK-a6m">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axt-GK-a6m">
                                     <rect key="frame" x="48" y="0.0" width="48" height="128"/>
-                                    <state key="normal" title="Green"/>
+                                    <state key="normal" title="Green" image="edit_green"/>
                                     <connections>
                                         <action selector="greenFilterButtonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="pS6-h1-tlD"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNq-be-bSy">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNq-be-bSy">
                                     <rect key="frame" x="96" y="0.0" width="48" height="128"/>
-                                    <state key="normal" title="Blue"/>
+                                    <state key="normal" title="Blue" image="edit_blue"/>
                                     <connections>
                                         <action selector="blueFilterButtonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="VZq-a4-1aQ"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUq-ef-bpc">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUq-ef-bpc">
                                     <rect key="frame" x="144" y="0.0" width="48" height="128"/>
-                                    <state key="normal" title="Yellow"/>
+                                    <state key="normal" title="Yellow" image="edit_yellow"/>
                                     <connections>
                                         <action selector="yellowFilterButtonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="xZW-ys-o5u"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P8-VM-YCw">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P8-VM-YCw">
                                     <rect key="frame" x="192" y="0.0" width="48" height="128"/>
-                                    <state key="normal" title="Purple"/>
+                                    <state key="normal" title="Purple" image="edit_purple"/>
                                     <connections>
                                         <action selector="purpleFilterButtonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="6Ov-OI-XAU"/>
                                     </connections>
@@ -173,6 +199,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="edit_blue" width="40" height="40"/>
+        <image name="edit_green" width="40" height="40"/>
+        <image name="edit_purple" width="40" height="40"/>
+        <image name="edit_red" width="40" height="40"/>
+        <image name="edit_yellow" width="40" height="40"/>
         <image name="scenery" width="100" height="134"/>
     </resources>
 </document>
