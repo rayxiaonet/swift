@@ -27,12 +27,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var compareButton: UIButton!
     
+    @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet var secondaryMenu: UIView!
     @IBOutlet var bottomMenu: UIView!
     
+    @IBOutlet weak var originalLabel: UILabel!
     @IBOutlet var filterButton: UIButton!
     func switchImage() {
+        
         if (filteredImage != nil) {
+            originalLabel.hidden = (imageView!.image == originalImage)
+
             if (imageView!.image==originalImage){
                 imageView!.image=filteredImage!
             }else{
@@ -52,6 +57,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         imageView.userInteractionEnabled = true
         imageView.addGestureRecognizer(tapGestureRecognizer)
+        coverImage.hidden=true
+        
         
     }
     
@@ -110,27 +117,43 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             imageView!.image = image
         }
     }
-    
+    func animateNewImage(newImage:UIImage!) {
+        originalLabel.hidden = (imageView!.image == originalImage)
+
+        coverImage.image=imageView!.image
+        imageView!.image=newImage
+        self.coverImage.alpha = 1
+
+        coverImage.hidden=false
+        
+        UIView.animateWithDuration(1.5, animations: {
+            self.coverImage.alpha = 0
+            },completion:{finished in
+                self.coverImage.hidden=true
+        })
+
+    }
     
     @IBAction func redFilterButtonClick(sender: AnyObject) {
         filteredImage = redFilter50.apply(originalImage)
-        imageView!.image=filteredImage
+        animateNewImage(filteredImage)
+        
     }
     @IBAction func greenFilterButtonClick(sender: AnyObject) {
         filteredImage = greenFilter50.apply(originalImage)
-        imageView!.image=filteredImage
+        animateNewImage(filteredImage)
     }
     @IBAction func blueFilterButtonClick(sender: AnyObject) {
         filteredImage = blueFilter50.apply(originalImage)
-        imageView!.image=filteredImage
+        animateNewImage(filteredImage)
     }
     @IBAction func yellowFilterButtonClick(sender: AnyObject) {
         filteredImage = yellowFilter50.apply(originalImage)
-        imageView!.image=filteredImage
+        animateNewImage(filteredImage)
     }
     @IBAction func purpleFilterButtonClick(sender: AnyObject) {
         filteredImage = purpleFilter50.apply(originalImage)
-        imageView!.image=filteredImage
+        animateNewImage(filteredImage)
     }
     @IBAction func compareButtonClick(sender: AnyObject) {
         switchImage()
