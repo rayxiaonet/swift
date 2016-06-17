@@ -56,7 +56,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="6Fm-ze-kBd"/>
                                                 </constraints>
-                                                <state key="normal" title="Adjust"/>
+                                                <state key="normal" title="Edit"/>
                                                 <connections>
                                                     <action selector="onAdjustClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m77-w2-Sgp"/>
                                                 </connections>
@@ -150,35 +150,35 @@
                             <subviews>
                                 <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drk-Kp-614">
                                     <rect key="frame" x="0.0" y="0.0" width="48" height="128"/>
-                                    <state key="normal" title="Red" image="edit_red"/>
+                                    <state key="normal" image="edit_red"/>
                                     <connections>
                                         <action selector="redFilterButtonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="CBv-4M-VLR"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axt-GK-a6m">
                                     <rect key="frame" x="48" y="0.0" width="48" height="128"/>
-                                    <state key="normal" title="Green" image="edit_green"/>
+                                    <state key="normal" image="edit_green"/>
                                     <connections>
                                         <action selector="greenFilterButtonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="pS6-h1-tlD"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNq-be-bSy">
                                     <rect key="frame" x="96" y="0.0" width="48" height="128"/>
-                                    <state key="normal" title="Blue" image="edit_blue"/>
+                                    <state key="normal" image="edit_blue"/>
                                     <connections>
                                         <action selector="blueFilterButtonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="VZq-a4-1aQ"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUq-ef-bpc">
                                     <rect key="frame" x="144" y="0.0" width="48" height="128"/>
-                                    <state key="normal" title="Yellow" image="edit_yellow"/>
+                                    <state key="normal" image="edit_yellow"/>
                                     <connections>
                                         <action selector="yellowFilterButtonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="xZW-ys-o5u"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P8-VM-YCw">
                                     <rect key="frame" x="192" y="0.0" width="48" height="128"/>
-                                    <state key="normal" title="Purple" image="edit_purple"/>
+                                    <state key="normal" image="edit_purple"/>
                                     <connections>
                                         <action selector="purpleFilterButtonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="6Ov-OI-XAU"/>
                                     </connections>

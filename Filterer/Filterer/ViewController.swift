@@ -13,18 +13,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var filteredImage: UIImage? {
         didSet{
             compareButton.enabled = true
+            adjustButton.enabled = true
         }
     }
     var showingOriginal = true
     let originalImage = UIImage(named:"scenery")!
-    let rgbaImageFilter = RGBAImageFilter()
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var compareButton: UIButton!
     
     @IBOutlet weak var coverImage: UIImageView!
     @IBOutlet var secondaryMenu: UIView!
- 
+    
     @IBOutlet weak var filterSlider: UISlider!
     @IBOutlet var thirdMenu: UIView!
     @IBOutlet var bottomMenu: UIView!
@@ -37,11 +37,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var yellowFilterButton: UIButton!
     @IBOutlet weak var purpleFilterButton: UIButton!
     @IBOutlet weak var originalLabel: UILabel!
+    
+    let redFilter = RGBAImageFilter(filterRed:true)
+    let greenFilter = RGBAImageFilter(filterGreen:true)
+    let blueFilter = RGBAImageFilter(filterBlue:true)
+    let yellowFilter = RGBAImageFilter(filterRed:true,filterGreen:true)
+    let purpleFilter = RGBAImageFilter(filterBlue:true,filterRed:true)
+    
+    var currentFilter:RGBAImageFilter?
+    
     func switchImage() {
         
         if (filteredImage != nil) {
             originalLabel.hidden = (imageView!.image == originalImage)
-
+            
             if (imageView!.image==originalImage){
                 animateNewImage(filteredImage!)
                 
@@ -64,6 +73,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imageView.addGestureRecognizer(tapGestureRecognizer)
         coverImage.alpha=0
         filterSlider.hidden=true
+        adjustButton.enabled=false
         
     }
     
@@ -127,34 +137,39 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         coverImage.image=imageView!.image
         imageView!.image=newImage
         self.coverImage.alpha = 1
-
+        
         UIView.animateWithDuration(1.5,
-            animations: {
-                self.coverImage.alpha = 0.0
+                                   animations: {
+                                    self.coverImage.alpha = 0.0
             }
         )
-
+        
     }
     
     @IBAction func redFilterButtonClick(sender: AnyObject) {
-        filteredImage = rgbaImageFilter.apply(originalImage,red:50)
+        currentFilter=redFilter
+        filteredImage = currentFilter!.apply(originalImage,val:Int(filterSlider.value))
         animateNewImage(filteredImage)
         
     }
     @IBAction func greenFilterButtonClick(sender: AnyObject) {
-        filteredImage = rgbaImageFilter.apply(originalImage,green:50)
+        currentFilter=greenFilter
+        filteredImage = currentFilter!.apply(originalImage,val:Int(filterSlider.value))
         animateNewImage(filteredImage)
     }
     @IBAction func blueFilterButtonClick(sender: AnyObject) {
-        filteredImage = rgbaImageFilter.apply(originalImage,blue:50)
+        currentFilter=blueFilter
+        filteredImage = currentFilter!.apply(originalImage,val:Int(filterSlider.value))
         animateNewImage(filteredImage)
     }
     @IBAction func yellowFilterButtonClick(sender: AnyObject) {
-        filteredImage = rgbaImageFilter.apply(originalImage,red:50,green:50)
+        currentFilter=yellowFilter
+        filteredImage = currentFilter!.apply(originalImage,val:Int(filterSlider.value))
         animateNewImage(filteredImage)
     }
     @IBAction func purpleFilterButtonClick(sender: AnyObject) {
-        filteredImage = rgbaImageFilter.apply(originalImage,red:50,blue:50)
+        currentFilter=purpleFilter
+        filteredImage = currentFilter!.apply(originalImage,val:Int(filterSlider.value))
         animateNewImage(filteredImage)
     }
     @IBAction func compareButtonClick(sender: AnyObject) {
@@ -173,7 +188,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } else {
             showSecondaryMenu()
             sender.selected = true
-
+            
             filterSlider.hidden=true
             adjustButton.selected = false
         }
@@ -189,15 +204,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         }
     }
-
+    
     
     func showSecondaryMenu() {
         view.addSubview(secondaryMenu)
-        
         let bottomConstraint = secondaryMenu.bottomAnchor.constraintEqualToAnchor(bottomMenu.topAnchor)
         let leftConstraint = secondaryMenu.leftAnchor.constraintEqualToAnchor(view.leftAnchor)
         let rightConstraint = secondaryMenu.rightAnchor.constraintEqualToAnchor(view.rightAnchor)
-        
         let heightConstraint = secondaryMenu.heightAnchor.constraintEqualToConstant(44)
         
         NSLayoutConstraint.activateConstraints([bottomConstraint, leftConstraint, rightConstraint, heightConstraint])
@@ -211,13 +224,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func filterSliderChange(sender: UISlider) {
-        //sender.value
+        filteredImage = currentFilter!.apply(originalImage,val:Int(filterSlider.value))
+        imageView!.image=filteredImage
+        
     }
     @IBAction func onAdjustClick(sender: UIButton) {
         if (sender.selected) {
             filterSlider.hidden=true
             sender.selected = false
-
+            
         } else {
             filterSlider.hidden=false
             sender.selected = true
@@ -225,7 +240,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             filterButton.selected = false
             hideSecondaryMenu()
         }
-
+        
     }
     
 }

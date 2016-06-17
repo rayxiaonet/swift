@@ -15,21 +15,40 @@ func c(color:Int)->UInt8 {
 
 
 class RGBAImageFilter {
+    var filterRed:Bool
+    var filterGreen:Bool
+    var filterBlue:Bool
+    var filterAlpha:Bool
+    init(filterRed:Bool=false,filterGreen:Bool=false,filterBlue:Bool=false,filterAlpha:Bool=false){
+        self.filterRed=filterRed
+        self.filterGreen=filterGreen
+        self.filterBlue=filterBlue
+        self.filterAlpha=filterAlpha
+    }
     
-    
-    func apply(sourceImage:UIImage,red:Int=0,green:Int=0,blue:Int=0,alpha:Int=0)->UIImage {
+    func apply(sourceImage:UIImage,val:Int=0)->UIImage {
         var src=RGBAImage(image:sourceImage)!
         
         for i in 0..<src.height*src.width {
             var pixel = src.pixels[i];
-            pixel.red=c(Int(pixel.red)+red)
-            pixel.green=c(Int(pixel.green)+green)
-            pixel.blue=c(Int(pixel.blue)+blue)
-            pixel.alpha=c(Int(pixel.alpha)+alpha)
+            if (filterRed) {
+                pixel.red=c(Int(pixel.red)+val)
+            }
+            if (filterGreen) {
+                
+                pixel.green=c(Int(pixel.green)+val)
+            }
+            if (filterBlue) {
+                
+                pixel.blue=c(Int(pixel.blue)+val)
+            }
+            if (filterAlpha) {
+                
+                pixel.alpha=c(Int(pixel.alpha)+val)
+            }
             src.pixels[i]=pixel
         }
         return src.toUIImage()!
     }
 }
-
 
