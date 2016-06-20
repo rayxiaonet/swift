@@ -74,6 +74,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         coverImage.alpha=0
         filterSlider.hidden=true
         adjustButton.enabled=false
+        redFilterButton.setImage(redFilter.apply(originalImage,val:80),forState:.Normal)
+        greenFilterButton.setImage(greenFilter.apply(originalImage,val:80),forState:.Normal)
+        blueFilterButton.setImage(blueFilter.apply(originalImage,val:80),forState:.Normal)
+        yellowFilterButton.setImage(yellowFilter.apply(originalImage,val:80),forState:.Normal)
+        purpleFilterButton.setImage(purpleFilter.apply(originalImage,val:80),forState:.Normal)
         
     }
     

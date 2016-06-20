@@ -150,35 +150,30 @@
                             <subviews>
                                 <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drk-Kp-614">
                                     <rect key="frame" x="0.0" y="0.0" width="48" height="128"/>
-                                    <state key="normal" image="edit_red"/>
                                     <connections>
                                         <action selector="redFilterButtonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="CBv-4M-VLR"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axt-GK-a6m">
                                     <rect key="frame" x="48" y="0.0" width="48" height="128"/>
-                                    <state key="normal" image="edit_green"/>
                                     <connections>
                                         <action selector="greenFilterButtonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="pS6-h1-tlD"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNq-be-bSy">
                                     <rect key="frame" x="96" y="0.0" width="48" height="128"/>
-                                    <state key="normal" image="edit_blue"/>
                                     <connections>
                                         <action selector="blueFilterButtonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="VZq-a4-1aQ"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUq-ef-bpc">
                                     <rect key="frame" x="144" y="0.0" width="48" height="128"/>
-                                    <state key="normal" image="edit_yellow"/>
                                     <connections>
                                         <action selector="yellowFilterButtonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="xZW-ys-o5u"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P8-VM-YCw">
                                     <rect key="frame" x="192" y="0.0" width="48" height="128"/>
-                                    <state key="normal" image="edit_purple"/>
                                     <connections>
                                         <action selector="purpleFilterButtonClick:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="6Ov-OI-XAU"/>
                                     </connections>
@@ -199,11 +194,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="edit_blue" width="40" height="40"/>
-        <image name="edit_green" width="40" height="40"/>
-        <image name="edit_purple" width="40" height="40"/>
-        <image name="edit_red" width="40" height="40"/>
-        <image name="edit_yellow" width="40" height="40"/>
         <image name="scenery" width="100" height="134"/>
     </resources>
 </document>
