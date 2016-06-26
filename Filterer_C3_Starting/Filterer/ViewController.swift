@@ -9,14 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate {
+    
 
     var filteredImage: UIImage?
     
     @IBOutlet var imageView: UIImageView!
     
+    @IBOutlet var zoomTapGesture: UITapGestureRecognizer!
     @IBOutlet var secondaryMenu: UIView!
     @IBOutlet var bottomMenu: UIView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var filterButton: UIButton!
     
     override func viewDidLoad() {
@@ -119,6 +122,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: UIScrollViewDelegate
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return imageView
+    }
+    
+    
+    @IBAction func onTap(sender: UITapGestureRecognizer) {
+        scrollView.zoomScale=1.5
     }
 }
 
