@@ -17,7 +17,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     var showingOriginal = true
-    let originalImage = UIImage(named:"scenery")!
+    var originalImage = UIImage(named:"scenery")!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var compareButton: UIButton!
@@ -60,6 +60,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    func refreshThumbnails() {
+        redFilterButton.setImage(redFilter.apply(originalImage,val:80),forState:.Normal)
+        greenFilterButton.setImage(greenFilter.apply(originalImage,val:80),forState:.Normal)
+        blueFilterButton.setImage(blueFilter.apply(originalImage,val:80),forState:.Normal)
+        yellowFilterButton.setImage(yellowFilter.apply(originalImage,val:80),forState:.Normal)
+        purpleFilterButton.setImage(purpleFilter.apply(originalImage,val:80),forState:.Normal)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         secondaryMenu.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
@@ -74,11 +81,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         coverImage.alpha=0
         filterSlider.hidden=true
         adjustButton.enabled=false
-        redFilterButton.setImage(redFilter.apply(originalImage,val:80),forState:.Normal)
-        greenFilterButton.setImage(greenFilter.apply(originalImage,val:80),forState:.Normal)
-        blueFilterButton.setImage(blueFilter.apply(originalImage,val:80),forState:.Normal)
-        yellowFilterButton.setImage(yellowFilter.apply(originalImage,val:80),forState:.Normal)
-        purpleFilterButton.setImage(purpleFilter.apply(originalImage,val:80),forState:.Normal)
+        refreshThumbnails()
         
     }
     
@@ -135,6 +138,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismissViewControllerAnimated(true, completion: nil)
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView!.image = image
+            originalImage = image
+            refreshThumbnails()
         }
     }
     func animateNewImage(newImage:UIImage!) {
